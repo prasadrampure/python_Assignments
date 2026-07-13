@@ -17,3 +17,13 @@ Lambda Functions
 • Object-Oriented Programming (OOP)
 • Exception Handling
 • Python Modules
+
+🎯 Purpose
+This repository serves as a personal learning journey and practice archive, helping build a strong foundation in Python programming through regularly solved assignments and coding exercises.
+
+🚀 Ideal For
+• Beginners learning Python
+• College students
+• Coding practice
+• Interview preparation
+• Improving programming logic
