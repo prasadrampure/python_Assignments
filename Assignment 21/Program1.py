@@ -1,0 +1,22 @@
+import schedule
+import time
+
+def DisplayMessage(message):
+    print(message)
+    
+def main():
+    message = input("Enter a message :")
+    interval = int(input("Enter the interval :"))
+
+    if (interval <= 0):
+        print("Invalid interval")
+        return
+
+    schedule.every(5).seconds.do(DisplayMessage,message)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+if __name__ == "__main__":
+    main()
