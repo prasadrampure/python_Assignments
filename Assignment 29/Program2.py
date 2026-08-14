@@ -1,0 +1,96 @@
+import math
+import numpy as np
+
+def EucDistance(P1,P2):
+    Ans = math.sqrt((P1["X"] - P2["X"])**2 + (P1["Y"] - P2["Y"])**2)
+    return Ans
+
+def KNNClassifier():
+    border = "-"*50
+
+    Data =[
+        {"point" : "A", "X" : 1, "Y" : 2, "label" : "Red"},
+        {"point" : "B", "X" : 2, "Y" : 3, "label" : "Red"},
+        {"point" : "C", "X" : 3, "Y" : 1, "label" : "Blue"},
+        {"point" : "D", "X" : 6, "Y" : 5, "label" : "Blue"},
+        {"point" : "E", "X" : 4, "Y" : 4, "label" : "Blue"}
+    ]
+
+    print(border)
+    print("KNNClassifier")
+    print(border)
+
+    for i in Data:
+        print(i)
+
+    print(border)
+
+    new_point = {"X" : 3, "Y" : 3}
+
+    print("Distance of All points :")
+    print(border)
+
+    for d in Data:
+        d["distance"] = EucDistance(d,new_point)
+
+    for d in Data:
+        print(d)
+
+    print(border)
+
+    sorted_data = sorted(Data, key = lambda item : item["distance"])
+
+    print(border)
+    print("Sorted Data :")
+    print(border)
+
+    for d in sorted_data:
+        print(d) 
+
+    print(border)
+
+    for k in [1,3,5]:
+        print("k =", k)
+        print(border)
+
+        nearest = sorted_data[:k]
+
+        print(border)
+        print("Nearest", k, "members are :")
+        print(border)
+
+        for d in nearest:
+            print(d)
+
+        print(border)
+
+        votes = {}
+
+        for neighbours in nearest:
+            label = neighbours["label"]
+            votes[label] = votes.get(label, 0) + 1
+
+        print("Voting result is :")
+        print(border)
+
+        for d in votes:
+            print("Name :", d, "No of votes :", votes[d])
+
+        print(border)
+
+        iMax = 0
+        Name = ""
+
+        for d in votes:
+            if votes[d] > iMax:
+                iMax = votes[d]
+                Name = d
+
+        print("Final Prediction for K =", k, ":", Name)
+        print(border)
+
+def main():
+    KNNClassifier()
+
+if __name__ == "__main__":
+    main()
