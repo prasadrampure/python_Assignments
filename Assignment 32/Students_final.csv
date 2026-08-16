@@ -1,0 +1,4 @@
+Name,Math,Science,English,Total,Gender_Female,Gender_Male,Average,Status
+Amit,0.583333333333333,92,75,252,0,1,55.86111111111111,Pass
+Sagar,1.0,88,85,263,0,1,58.0,Pass
+Pooja,0.0,80,82,240,1,0,54.0,Fail
